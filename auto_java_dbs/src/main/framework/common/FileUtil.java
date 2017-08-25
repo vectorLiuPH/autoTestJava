@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.eclipse.jetty.io.RuntimeIOException;
 
@@ -60,4 +61,9 @@ public class FileUtil {
 		if(i==-1) i=filePath.lastIndexOf("\\");
 		String str=filePath.substring(i+1);
 		return str.substring(0,str.indexOf("."));}
+
+	public static List<String> matchClassPathFileList(String scriptPath) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

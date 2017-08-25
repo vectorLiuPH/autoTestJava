@@ -16,6 +16,11 @@ public class StringUtil {
 	
 	public static String makeFirstLetterUpper(String str){
 		return Character.toUpperCase(str.charAt(0))+str.substring(1);
+	}
+
+	public static String[] split(String str, String sep) {
+		// TODO Auto-generated method stub
+		return str.split(sep);
 	}	
 	
 }

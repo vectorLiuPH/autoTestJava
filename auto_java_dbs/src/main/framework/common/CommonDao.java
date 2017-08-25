@@ -18,6 +18,10 @@ public class CommonDao {
 	
 	private JdbcTemplate jdbcTemplate;
 	
+	/**
+	 * Set the {@code DataSource}, typically provided via Dependency Injection.
+	 * <p>This method also instantiates the {@link #jdbcTemplate} instance variable.
+	 */
 	public void setDataSource(DataSource dataSource){
 		this.jdbcTemplate=new JdbcTemplate(dataSource);
 	}

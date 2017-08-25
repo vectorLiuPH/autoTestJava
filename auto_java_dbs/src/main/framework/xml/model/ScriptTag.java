@@ -22,7 +22,15 @@ public class ScriptTag extends BaseTag {
 	private List<ImportTag> importTagList;
 	private boolean isCreateWebDriver=true;
 	private String testDataFilePath;
+	private ActionTag mainActionTag;
+	private List<ActionTag> subActionList;
 	
+	public List<ActionTag> getSubActionList() {
+		return subActionList;
+	}
+	public void setSubActionList(List<ActionTag> subActionList) {
+		this.subActionList = subActionList;
+	}
 	public String getDeclareClassName() {
 		return declareClassName;
 	}
@@ -75,5 +83,12 @@ public class ScriptTag extends BaseTag {
 	public void setTestDataFilePath(String testDataFilePath) {
 		this.testDataFilePath = testDataFilePath;
 	}
-	
+	public ActionTag getMainActionTag() {
+		// TODO Auto-generated method stub
+		return mainActionTag;
+	}
+	public void setMainActionTag(ActionTag mainActionTag) {
+		this.mainActionTag = mainActionTag;
+	}
+
 }

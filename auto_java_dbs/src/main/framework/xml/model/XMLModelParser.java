@@ -161,9 +161,39 @@ public class XMLModelParser {
 				}
 				
 			}
-			
+			boolean isHaveMain=false;
+			nodes=root.getElementsByTagName("action");
+			for(int i=0;i<nodes.getLength();i++){
+				Element actionElement=(Element) nodes.item(i);
+				ActionTag actionTag=null;
+				if(!actionElement.hasAttribute("name")){
+					if(isHaveMain)
+						throw new RuntimeException("found mutliple main actions (which's name is empty)!");
+					else
+						isHaveMain=true;
+					actionTag=scriptTag.getMainActionTag()!=null?scriptTag.getMainActionTag():new ActionTag();
+					scriptTag.setMainActionTag(actionTag);
+					actionTag.setActionStepList(parseActionStep(currentClassPath,isHaveTemplate,actionTag.getActionStepList(),actionElement.getChildNodes()));
+				}
+				else{
+					actionTag=new ActionTag();
+					actionTag.setName(actionElement.getAttribute("name"));
+					actionTag.setActionStepList(parseActionStep(currentClassPath,false,actionTag.getActionStepList(),actionElement.getChildNodes()));
+					scriptTag.getSubActionList().add(actionTag);
+				}
+			}
+			return scriptTag;
+		}catch(Exception e){
+			throw new RuntimeException("fail to parse " + classPath, e);
+		}finally{
+			try{
+				if(in!=null)
+					in.close();
+			}catch(Exception ex){}
 		}
 	}
 	
-	
+	private static List<ActionStepTag> parseActionStep(String currentClassPath, boolean isHaveTemplate,List<ActionStepTag> list,NodeList nodes){
+		
+	}	
 }

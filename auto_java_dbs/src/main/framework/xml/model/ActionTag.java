@@ -13,6 +13,15 @@ import java.util.List;
 public class ActionTag extends BaseTag {
 	
 	private List<ActionStepTag> stepList;
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public List<ActionStepTag> getActionStepList() {
 		if(stepList==null)
