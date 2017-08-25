@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@//15.114.116.212:1521/DBSDEV" />
+		<property name="user" value="R1_21669773" />
+		<property name="password" value="U21669773" />
+	</bean>
+	
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+    <property name="dataSource" ref="dataSource"/>    
+  </bean>
+  
+   <bean id="commonDao" class="com.nissan.dbs.autotest.framework.common.CommonDao">
+     <property name="dataSource" ref="dataSource"/>
+  </bean>
+  
+  <bean id="configuration" class="com.nissan.dbs.autotest.framework.common.CommonConfiguration">
+     <constructor-arg value="/config/common.properties"/>
+  </bean>
+  
+  <bean id="webDriverFactory" class="com.nissan.dbs.autotest.framework.common.CommonWebDriverFactory">
+     	<property name="properties">
+			<value>
+			    driver.name=webdriver.ie.driver
+			    driver.path=.\\driver\\IE\\IEDriverServer_x64_3.4.exe
+				driver.remote=false
+				driver.remote.url=http://localhost:4444/wd/hub
+				driver.class=org.openqa.selenium.ie.InternetExplorerDriver
+				driver.capabilities.browser.type=IE
+				driver.capabilities.browser.version=
+				driver.capabilities.browser.platform=WINDOWS
+				driver.capabilities.IE.ignoreProtectedModeSettings=bool,true
+				driver.capabilities.IE.requireWindowFocus=bool,true
+	      	</value>
+		</property>
+  </bean>
+  
+  <bean id="dataProvider" class="com.nissan.dbs.autotest.framework.common.ExcelTestDataProvider">
+  </bean>
+  
+</beans>

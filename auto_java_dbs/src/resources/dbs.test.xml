@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+   <script path="/config/script/home/*.xml"/>
+   <script path="/config/script/admin/*.xml"/>
+   <script path="/config/script/customer/*.xml"/>
+   <script path="/config/script/finance/*.xml"/>
+   <script path="/config/script/office/*.xml"/>
+   <script path="/config/script/parts/*.xml"/>
+   <script path="/config/script/sales/*.xml"/>
+   <script path="/config/script/service/*.xml"/>
+   <script path="/config/script/demo/*.xml"/>
+</test>
