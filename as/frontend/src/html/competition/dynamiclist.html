@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="import" href="/src/html/common/meta.html?__inline">
+    <link rel="import" href="/src/html/competition/module/meta.html?__inline">
+    <link type="text/css" rel="stylesheet" href="/src/css/common/pager.less" />
+    <link type="text/css" rel="stylesheet" href="/src/css/competition/dynamiclist.less" />
+
+</head>
+<body>
+<link rel="import" href="/src/html/competition/module/header.html?__inline">
+
+<!--滚动图片-->
+<link rel="import" href="/src/html/competition/module/slider.html?__inline">
+
+<div class="am-middle">
+    <div class="selector-wrapper clearfix">
+        <div class="nav-wrapper">
+            <a href="/competition" class="link">首页</a>
+            <span>&gt;</span>
+            <a href="/competition/dynamiclist.html" class="link">大赛动态</a>
+        </div>
+
+        <form class="select-form">
+           
+        </form>
+    </div>
+    
+    <div class="list-wrapper clearfix">
+        
+    </div>
+    <div class="page-wrapper clearfix">
+        
+    </div>
+</div>
+
+<link rel="import" href="/src/html/competition/module/footer.html?__inline">
+<link rel="import" href="/src/html/user/module/userdialog.html?__inline">
+
+<script type="text/html" id="select">
+    <select name="cparea" class="j_area">
+        <option value="">全部赛区</option>
+        <%if(raceSections && raceSections.length > 0){
+            for(var i = 0; i<raceSections.length; i++){%>
+                <option value="<%=raceSections[i].sectionId%>"><%=raceSections[i].sectionName%></option>
+        <%}}%>
+        
+    </select>
+
+    
+</script>
+<!--<select name="cpgrade" class="j_group">
+    <option value="">全部组别</option>
+    <%if(competitionGrade && competitionGrade.length > 0){
+        for(var i = 0; i<competitionGrade.length; i++){%>
+            <option value="<%=competitionGrade[i].gradeId%>"><%=competitionGrade[i].gradeName%></option>
+    <%}}%>
+</select>-->
+
+<script type="text/html" id="item">
+    <%for(var i = 0;i<list.length;i++){%>
+        <div class="item">
+            <div class="img-wrapper">
+                <img src="<%if(list[i].eventPic){%><%=list[i].eventPic%><%}else{%>../../../../images/icons.png<%}%>"/>
+                <div class="mark-info">
+                    <span class="area span"><%=areaName%></span>
+                    <!--<span class="grade span"><%=groupName%></span>-->
+                </div>
+            </div>
+
+            <div class="title-wrapper clearfix">
+                <div class="title"><%=list[i].eventTitle%></div>
+                <div class="date"><%=list[i].formateDate%></div>
+            </div>
+            
+            <p class="intro">
+                <%=list[i].stateIntro%>
+            </p>
+
+            <div class="operate-wrapper">
+                <a href="/competition/dynamicdetail.html?id=<%=list[i].eventId%>" class="operate">了解更多</a>
+            </div>
+        </div>
+    <%}%>
+</script>
+
+<script type="text/javascript" src="/src/js/lib/pager.js"></script>
+<script type="text/javascript" src="/src/js/widget/competition/dynamiclist.js"></script>
+</body>
+</html>

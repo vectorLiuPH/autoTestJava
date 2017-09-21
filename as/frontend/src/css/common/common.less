@@ -1,0 +1,313 @@
+//reset.css
+*{
+	padding:0;
+	margin: 0;
+	box-sizing: border-box;
+	border: 0;
+	font-family: 'Microsoft YaHei',"Times New Roman",Georgia,Serif;
+}
+body{
+	font-size: 14px;
+	font-family: 'Microsoft YaHei',"Times New Roman",Georgia,Serif;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+
+
+//低版本浏览器提示样式
+
+.alert-warn{
+	background-color: red;
+	color:#fff;
+	width:100%;
+	padding:15px;
+	line-height: 2em;
+	position: fixed;
+	left:0;
+	top:0;
+}
+
+/***********************************通用样式**************************************/
+//通用样式
+
+//变量
+@middleWidth: 1180px;//页面中间宽度
+
+//清楚浮动
+.clearfix{
+	&:after{
+		content:".";
+		display:block;
+		height:0;
+		clear:both;
+		visibility:hidden;
+		font-size: 0;
+		line-height: 0;
+	}
+}
+
+//居中
+.am-middle{
+	width: @middleWidth;
+	margin: 0 auto;
+}
+
+
+//隐藏
+.hide{
+	display: none;
+}
+
+.not-allowed{//禁止的手势
+	cursor: not-allowed;
+}
+
+.icon-arrow-left{
+	&:after{
+		content:'<';
+		display:inline-block;
+		width:20px;
+		height:20px;
+		color:#000;
+		font-style: normal;
+	}
+}
+
+.icon-arrow-right{
+	&:after{
+		content:'>';
+		display:inline-block;
+		width:20px;
+		height:20px;
+		color:#000;
+		font-style: normal;
+	}
+}
+
+
+/***********************************header**************************************/
+
+
+//变量
+@navHeight: 50px;
+
+//top-bar
+.top-bar{
+	background-color: #fff;
+	min-width: @middleWidth;
+	.header{
+		height: 100px;
+	}
+	.logo-area{
+		float: left;
+		a{
+			display: block;
+			width: 350px;
+			height: 100px;
+			padding-top: 32px;
+		}
+	}
+
+	.user-info{
+		float: right;
+		
+		a{
+			color: #333;
+			
+		}
+	}
+	
+	.login-before{
+		margin-top: 50px;
+	}
+
+	.login-after{
+		margin-top: 36px;
+		.img{
+			width: 40px;
+			height: 40px;
+			vertical-align: middle;
+		}
+
+		.userName{
+			margin-left: 5px;
+			vertical-align: middle;
+		}
+
+		.quit{
+			margin-left: 5px;
+			display: inline-block;
+			width: 20px;
+			height: 28px;
+			vertical-align: middle;
+			background: url('/src/images/icons.png') -8px -8px no-repeat;
+		}
+	}
+
+	.nav-wrapper{
+		width: 100%;
+		background-color: #1464a1;
+		height: @navHeight;
+		line-height: @navHeight;
+		.nav-li{
+			width: 20%;
+			float: left;
+			text-align: center;
+			height: @navHeight;
+		}
+
+		.nav-li-link{
+			display: block;
+			color:#fff;
+			font-size: 16px;
+			width: 100%;
+			height: @navHeight;
+			font-weight: bold;
+		}
+
+		.nav-li-link:hover{
+			background-color: #f59f2a;
+			text-decoration: none;
+		}
+
+		.active{
+			background-color: #f59f2a;
+		}
+	}
+}
+
+
+/***********************************footer**************************************/
+@footerHeight: 260px;
+@footerInfoHeight:200px;
+.footer{
+	width: 100%;
+	height: @footerHeight;
+	color: #414143;
+	background: url('/src/images/footer_bg.jpg') repeat-x;
+	min-width: @middleWidth;
+	.footer-info{
+		height: @footerInfoHeight;
+		padding-top: 40px;
+		.item{
+			float: left;
+			a{
+				color: #414143;
+			}
+		}
+		.logo-area{
+			color: #414143;
+		}
+
+		.intro{
+			margin-top: 20px;
+			font-size: 12px;
+		}
+		.contact{
+			float: right;
+		}
+
+		.partner{
+			margin-left: 45px;
+		}
+
+		.company-intro{
+			margin-left: 162px;
+		}
+		.company-intro,.partner{
+			
+			p{
+				margin-bottom: 16px;
+			}
+		}
+	}
+
+	.contact{
+		.img{
+			width: 80px;
+			height: 80px;
+			float: left;
+		}
+		
+		.text{
+			float:right;
+			margin-left: 23px;
+		}
+
+		.blog{
+			font-size: 12px;
+			margin-bottom: 17px;
+		}
+
+		.tel-text{
+			font-size: 16px;
+			line-height: 1.8em;
+		}
+
+		.tel-val{
+			font-size: 22px;
+			color: #f59f2a;
+			font-weight: bold;
+		}
+	}
+
+	.copy-right{
+		text-align: center;
+		background-color: #1464a1;
+		height: @footerHeight - @footerInfoHeight;
+		color: #fff;
+		font-size: 12px;
+		line-height: @footerHeight - @footerInfoHeight;
+	}
+}
+
+/***************************登录、注册、忘记密码弹出框******************************/
+
+.loginDialog,.regDialog,.forgetDialog{
+	.ui-dialog-tit{
+		text-align: center;
+		color: #002b7f;
+		font-size: 22px;
+		font-weight: bold;
+	}
+}
+
+#loginForm{
+	padding: 10px 66px 24px 66px;
+
+	.link-btn{
+		a{
+			color: #01337a;
+			font-size: 12px;
+		}
+		.forget-btn{
+			float: left;
+		}
+
+		.register-btn{
+			float: right;
+		}
+	}		
+}
+
+#regForm,#forgetForm{
+	padding: 10px 35px 25px 35px;
+
+	.reg-submit,.forget-submit{
+		width: 220px;
+		margin-bottom: 0;
+	}
+
+	.reg-btn-wrapper,.forget-btn-wrapper{
+		text-align: center;
+		margin-bottom: 0;
+	}
+}
+

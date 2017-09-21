@@ -1,0 +1,201 @@
+//reset.css
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-family: 'Microsoft YaHei',"Times New Roman",Georgia,Serif;
+}
+body{
+  font-size: 14px;
+  font-family: 'Microsoft YaHei',"Times New Roman",Georgia,Serif;
+}
+
+/***********************************通用样式**************************************/
+//通用样式
+
+//变量
+@middleWidth: 1180px;//页面中间宽度
+//清除浮动
+.clearfix{
+  &:after{
+    display: block;
+    width:0;
+    height:0;
+    overflow: hidden;
+    content:'';
+    clear: both;
+  }
+}
+//居中
+.display-middle{
+  min-width: @middleWidth;
+  margin: 0 auto;
+}
+//-------------------homePage_body部分的设计-------------------------
+
+@middle-width:1180px;
+
+//----------------------教育理念部分的文字--------------------------------------
+div.eduIdea{
+  width:100%;
+  background: url("src/images/background.png") repeat;
+  margin-top: -10px;
+
+  .eduIdea-mask{
+    width:@middleWidth;
+    height: 200px;
+    margin:0 auto;
+    vertical-align: middle;
+    padding:20px 0;
+  }
+
+  h1{
+    color:#01337a;
+    font-size:48px;
+    font-weight:normal;
+    line-height: 75px;
+    margin-bottom: 20px;
+  }
+  p{
+    font-size: 22px;
+    font-weight:normal;
+  }
+}
+li{
+  list-style: none;
+}
+//-------------------feature部分的设计-------------------------
+@cycle-diameter:160px;
+@feature-height:330px;
+div.feature {
+  margin: 0 auto ;
+  height:@feature-height;
+  background-color: rgb(237,244,250);
+  width:100%;
+  padding-top: 20px;
+
+ ul {
+        width:@middleWidth;
+        margin: 0 auto;
+        min-width:@middleWidth;
+
+    li {
+      float: left;
+      width: @middleWidth/4;
+      height: @feature-height;
+      padding-left: 67.5px;
+      padding-right: 67.5px;
+
+
+      .feature-img {
+        width: @cycle-diameter;
+        height: @cycle-diameter;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        overflow: hidden;
+
+        margin: 0 auto;
+      }
+      .title {
+        font-size: 22px;
+        color: #01337a;
+        line-height: 60px;
+        text-align: center;
+      }
+      .content {
+        font-size: 12px;
+        color: #414143;
+        height: 70px;
+        overflow: hidden;
+        text-indent: 24px;
+      }
+    }
+  }
+}
+//-------------------sectionCourse部分的设计-------------------------
+@section-pic-width:360px;
+@section-pic-height:220px;
+
+.sectionCourse {
+  width: @middleWidth;
+  height: 610px;
+  margin: 50px auto 0;
+
+  ul {
+
+    li {
+      border-left: 1px solid rgb(230, 228, 218);
+    }
+
+    li.first {
+      width: 410px;
+      float: left;
+      padding-right: 50px;
+    }
+    li.second {
+      width: 410px;
+      float: left;
+      padding-right: 50px;
+    }
+    li.third {
+      width: 350px;
+      float: left;
+    }
+
+    .section-img {
+      width: 360px;
+      height: 220px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 70px;
+    }
+    .section-line {
+      text-align: center;
+      margin-top: -5px;
+    }
+    .section-content {
+      font-size: 12px;
+      padding-left: 40px;
+      padding-right: 40px;
+      margin-top: 20px;
+      line-height: 20px;
+      height: 225px;
+      overflow: hidden;
+    }
+    .section-button {
+      width: 90px;
+      height: 30px;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid black;
+      background-color: white;
+      margin-left: 130px;
+
+      a {
+        text-decoration: none;
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+//----------------------------------图片轮播部分的设计------------------------------------------
+//.slider-wrapper{
+//  width:100%;
+//  background: url("src/images/background.png") repeat;
+//
+//  .slider-wrapper-mask{
+//    width:@middleWidth;
+//    margin:0 auto;
+//  }
+//}
+
+

@@ -1,0 +1,127 @@
+@lineHeight: 50px;//一行的高度
+.personalContent{
+	//内容头部提示信息，包含操作按钮
+	.toolTips{
+		width: 100%;
+		height: @lineHeight;
+		line-height: @lineHeight;
+		padding-left: 24px;
+
+		.ucenter-icon{
+			display: inline-block;
+			width: 26px;
+			height: 26px;
+			vertical-align: middle;
+			background: url('/src/images/icons.png') -8px -83px no-repeat;
+		}
+
+		.info{
+			vertical-align: middle;
+			color: #999;
+			font-size: 12px;
+			.name{
+				color: #1464a1;
+			}
+		}
+
+		.link-btn{
+			vertical-align: middle;
+			color: #fff;
+			padding: 5px 25px;
+			background-color: #f59f2a;
+			margin-left: 25px;
+			&:hover{
+				text-decoration: none;
+			}
+
+			&.disabled{
+				background-color: #ddd;
+			}
+		}
+
+
+	}
+
+	
+
+
+	//用户信息部分 表格
+	.user-info{
+		margin-left: 24px;
+		font-size: 12px;
+		color: #414143;
+		width:94%;
+
+		td{
+			height: @lineHeight;
+			position: relative;
+			.help-block.error{
+			    display: block;
+			    margin-left: 120px;
+			    color: red;
+			    font-size: 12px;
+			    line-height: 1.5em;
+			}
+			.key{
+				display: inline-block;
+				width: 100px;
+				text-align: right;
+				margin-right: 20px;
+			}
+
+			.star{
+				color: red;
+				margin-right: 5px;
+			}
+
+			.small-header-photo{
+				vertical-align: middle;
+				width: 34px;
+				height: 34px;
+			}
+
+			.mh-photo{
+				color:#1464a1;
+				margin-left: 10px;
+			}
+
+			input[type='text'].value{
+				width:320px;
+				padding-left: 10px;
+				height:35px;
+				border: 1px solid #ddd;
+			}
+
+			.radio-label{
+				margin-right: 20px;
+			}
+
+			.raido{
+				vertical-align: middle;
+				margin-right: 5px;
+			}
+
+			select.value{
+				width:320px;
+				height:35px;
+				border: 1px solid #ddd;
+			}
+		}
+	}
+}
+
+.button-wrapper{
+	text-align: center;
+	height:50px;
+	margin-top: 20px;
+	.btn{
+		padding: 10px 30px;
+	    border-radius: 5px;
+	    background-color: #1464a1;
+	    color: #fff;
+	}
+}
+
+.imagewrapper{
+	padding: 0 20px;
+}

@@ -1,0 +1,332 @@
+@transitionTimer:0.2s;
+//title
+.compet-title{
+	font-size: 30px;
+	color:#333;
+	font-weight: bold;
+	margin-top: 30px;
+
+	span{
+		vertical-align: middle;
+	}
+
+	.title-span{
+		display:inline-block;
+		width: 16px;
+		height: 30px;
+		background-color: #333;
+		margin-right: 20px;
+	}
+}
+
+//大赛进程
+.progress-wrapper{
+	position: relative;
+	margin-top: 50px;
+	.line{
+		position: absolute;
+		border-top: 1px solid #ccc;
+		width: 980px;
+		left:100px;
+		top: 39px;
+		z-index: -1;
+	}
+}
+
+
+.progress-li{
+	float: left;
+	width: 1/6 * 100%;
+	text-align: center;
+
+	.progress-date{
+		color: #666;
+	}
+
+	.progress-name{
+		font-size: 18px;
+		color: #333;
+		font-weight: bold;
+	}
+
+	.circle-wrapper{
+		height: 46px;
+		text-align: center;
+		line-height: 46px;
+
+		.circle-icon{
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			background-image: url('/src/images/icons.png');
+		}
+	}
+}
+
+.progress1{
+	.circle-icon{
+		background-position: -7px -118px;
+	}
+}
+
+.progress2{
+	.circle-icon{
+		background-position: -7px -141px;
+	}
+}
+
+.progress3{
+	.circle-icon{
+		background-position: -7px -169px;
+	}
+}
+
+.progress4{
+	.circle-icon{
+		background-position: -7px -202px;
+	}
+}
+
+.progress5{
+	.circle-icon{
+		background-position: -7px -227px;
+	}
+}
+
+.progress6{
+	.circle-icon{
+		background-position: -7px -252px;
+	}
+}
+
+@bigMiddleWidth:1366px;
+//大赛介绍
+//
+.progress-intro-wrapper{
+	padding-top: 50px;
+	width:@bigMiddleWidth;
+	max-width: 100%;
+	margin: 0 auto;
+	.progress-nav{
+		width:580px;
+		margin: 0 auto;
+		color: #fff;
+	}
+
+	.progress-nav1{
+		background-color: #5161bc;
+		.nav-traggle{
+			border-color: #5161bc;
+		}
+	}
+
+	.progress-nav2{
+		background-color: #19c2d7;
+		.nav-traggle{
+			border-color: #19c2d7;
+		}
+	}
+
+	.progress-nav3{
+		background-color: #5eb761;
+		.nav-traggle{
+			border-color: #5eb761;
+		}
+	}
+
+	.progress-nav4{
+		background-color: #ffc71e;
+		.nav-traggle{
+			border-color: #ffc71e;
+		}
+	}
+	
+
+	.progress-nav-li{
+		width: 140px;
+		height: 60px;
+		text-align: center;
+		line-height: 60px;
+		font-size: 18px;
+		font-weight: bold;
+		cursor: pointer;
+		float: left;
+		margin-right: 4px;
+		position:relative;
+
+		.nav-traggle{
+			display:none;
+			border-width: 20px;
+			border-style: solid;
+			position: absolute;
+			z-index: 1;
+			left: 50px;
+			bottom: -38px;
+			border-right: 20px solid transparent;
+			border-left: 20px solid transparent;
+			border-bottom: 20px solid transparent;
+		}
+	}
+
+	.active{
+		.nav-traggle{
+			display:block;
+		}
+	}
+
+	.progress-content-wrapper{
+		padding: 0 183px 60px 183px;
+		background-color: #ebeff5;
+		.content-title{
+			text-align: center;
+			font-size: 18px;
+			color: #333;
+		}
+
+		.pattern,.prize{
+			border-bottom: 1px dashed #ccc;
+			padding-bottom: 30px;
+			padding-top: 30px;
+		}
+
+		.criteria{
+			padding-top: 30px;
+		}
+
+
+		.pattern-ul{
+			padding: 0 180px;
+		}
+
+		.pattern-li{
+			line-height: 1.8em;
+			.icon-circle{
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				background: url('/src/images/icons.png') -89px -8px no-repeat;
+				vertical-align: middle;
+			}
+		}
+	}
+
+
+	//奖项设置
+	.prize-ul{
+		margin-top: 25px;
+		text-align: center;
+		.prize-li{
+			display:inline-block;
+			width:130px;
+			text-align: center
+		}
+
+		.prize-grade{
+			font-size: 14px;
+			color: #333;
+			font-weight: bold;
+		}
+
+		.prize-num{
+			font-size: 12px;
+			color: #666;
+		}
+
+		.img-wrapper{
+			width: 100px;
+			height: 100px;
+			display:inline-block;
+			border: 1px solid #ccc;
+			position: relative;
+			cursor: pointer;
+
+			.prize-img-dark{
+				overflow: hidden;
+				position: absolute;
+				left: -1px;
+				top: -1px;
+				width: 100px;
+				height: 0;
+                //透明色兼容IE 8
+				background-color: rgba(0,0,0,0.5);
+//                -ms-filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000);
+				color:#fff;
+				transition: height @transitionTimer;
+				-moz-transition:  height @transitionTimer;
+				-webkit-transition:height @transitionTimer;
+				-o-transition: height @transitionTimer;
+				.line{
+					display: inline-block;
+					height: 100px;
+					vertical-align: middle;
+				}
+
+				.text{
+					opacity:1;
+
+				}
+			}
+			img{
+				width: 100px;
+				height: 100px;
+				border:0;
+			}
+
+			&:hover{
+				.prize-img-dark{
+					height:100px
+				}
+			}
+		}
+	}
+
+
+	//评审准则
+	.criteria-table{
+		width: 900px;
+		margin: 0 auto;
+		border-collapse: collapse;
+		margin-top: 25px;
+		th,td{
+			border:1px solid #8eaed5;
+			padding: 10px 15px;
+		}
+
+		th{
+			background-color: #b9cfe4;
+			color:#333;
+			font-weight: normal;
+			text-align: left;
+		}
+
+		td{
+			font-size: 12px;
+			color: #333;
+		}
+
+		.criteria-name{
+			width: 160px;
+		}
+	}
+	
+}
+
+//主办方及合作伙伴
+
+.sponsor,.partners{
+	font-size: 18px;
+	color: #333;
+	line-height: 3em;
+}
+
+.sponsor-ul,.partners-ul{
+	margin-left: -65px;
+	.sponsor-li,.partners-li{
+		float: left;
+		margin-left: 65px;
+		border: 1px solid #ccc;
+		width: 350px;
+		height: 120px;
+		margin-bottom: 30px;
+	}
+}

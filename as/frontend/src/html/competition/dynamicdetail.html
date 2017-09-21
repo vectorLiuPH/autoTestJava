@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="import" href="/src/html/common/meta.html?__inline">
+    <link rel="import" href="/src/html/competition/module/meta.html?__inline">
+    <link type="text/css" rel="stylesheet" href="/src/css/competition/dynamicdetail.less" />
+
+</head>
+<body>
+<link rel="import" href="/src/html/competition/module/header.html?__inline">
+
+<!--滚动图片-->
+<link rel="import" href="/src/html/competition/module/slider.html?__inline">
+
+<div class="am-middle">
+    <div class="nav-page-wrapper"></div>
+
+    <div class="main"></div>
+        
+</div>
+
+<link rel="import" href="/src/html/competition/module/footer.html?__inline">
+<link rel="import" href="/src/html/user/module/userdialog.html?__inline">
+
+<script type="text/html" id="nav-page">
+    <a href="/competition" class="link">首页</a>
+    <span>&gt;</span>
+    <a href="/competition/dynamiclist.html" class="link">大赛动态</a>
+    <span>&gt;</span>
+    <a href="/competition/dynamicdetail.html?id=<%=id%>" class="link"><%=eventTitle%></a>
+</script>
+
+
+<script type="text/html" id="main">
+    <h1 class = "dynamic-title"><%=eventTitle%></h1>
+        <p class="info">
+            <span class="date">发布日期：<%=formateDate%></span>
+            <span class="area"><%=sectionName%></span>
+        </p>
+        <div class="img-wrapper">
+            <img src="<%=eventPic%>"/>
+        </div>
+        <div class="content">
+            <%:=eventContent%>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+
+    (function(){
+        var detail = {
+            $navWrapper:$('.nav-page-wrapper'),
+            $main:$('.main'),
+            init:function(){
+                this.bt = baidu.template;
+                this.getInfo();
+            },
+            getInfo:function(){
+                var _this = this;
+                var id = COM.GetRequest().id;
+                if (id) {
+                    var postData = {
+                        eventId:id
+                    }
+                    $.ajax({
+                        data:postData,
+                        contentType:'application/x-www-form-urlencoded',
+                        url:AmApi.getDynamicArticle,
+                        success:function(res){
+                            if (res.state && res.data) {
+                                res.data["id"] = id;
+                                res.data["formateDate"] = COM.formateDate(Number(res.data.eventDate));
+                                var navHtml = _this.bt('nav-page',res.data);
+                                    _this.$navWrapper.html(navHtml);
+                                var mainHtml = _this.bt('main',res.data);
+                                    _this.$main.html(mainHtml);
+                            };
+                        }
+                    });
+                }else{
+                    this.$navWrapper.html('<p class="no-data">抱歉，您未选择要查看的动态信息</p>');
+                }
+            }
+        }
+        detail.init();
+    })();
+
+</script>
+</body>
+</html>
